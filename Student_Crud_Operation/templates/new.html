@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Satz Website</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<link href='https://fonts.googleapis.com/css?family=Poppins'
+	rel='stylesheet'>
+<style>
+body {
+	font-family: 'Poppins';
+	font-size: 22px;
+}
+</style>
+<body>
+	<h1 class="my-3 mx-5 fs-1 fw-bolder">STUDENT MANAGEMENT SYSTEM APPLICATION FORM</h1>
+
+	<form action=# th:action=@{/save} th:object="${student}" method="POST"
+		class="container my-5">
+		<div class="mb-3">
+			<label class="form-label">Enter Name</label> <input type="hidden"
+				th:field="*{id}"> <input type="text" class="form-control"
+				placeholder="eg:satz" th:field="*{name}">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Enter Age</label> <input type="text"
+				class="form-control" placeholder="eg:satz@gmail.com"
+				th:field="*{age}">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Enter Roll No</label> <input type="text"
+				 class="form-control" placeholder="eg:1234" th:field="*{rollno}">
+		</div>
+		<button type="submit" class="btn btn-lg btn-primary mt-3">Save</button>
+	</form>
+
+</body>
+</html>

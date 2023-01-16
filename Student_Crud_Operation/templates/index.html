@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Satz Website</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<link href='https://fonts.googleapis.com/css?family=Poppins'
+	rel='stylesheet'>
+<style>
+body {
+	font-family: 'Poppins';
+}
+</style>
+<body>
+	<h1 class=" my-3 mx-5">STUDENT MANAGEMENT SYSTEM</h1>
+	<a th:href="@{/new/}" class="btn btn-dark mx-5 my-2">Add New</a>
+	<table class="container table table-dark table-striped mx-5">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Name</th>
+				<th scope="col">Age</th>
+				<th scope="col">Roll No</th>
+				<th scope="col">Edit</th>
+				<th scope="col">Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="student : ${liststudents}">
+				<th th:text="${student.id}" scope="col">ID</th>
+				<th th:text="${student.name}" scope="col">Name</th>
+				<th th:text="${student.age}" scope="col">Age</th>
+				<th th:text="${student.rollno}" scope="col">Roll No</th>
+				<th scope="col"><a th:href="@{'/edit/' + ${student.id}}"
+					class="btn btn-danger">Edit</a></th>
+				<th scope="col"><a th:href="@{'/delete/' + ${student.id}}"
+					class="btn btn-warning">Delete</a></th>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+
+
+</body>
+</html>
